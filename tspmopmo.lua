@@ -4589,6 +4589,7 @@ CMDs[#CMDs + 1] = {NAME = 'fakeout', DESC = 'Tp to the void and then back (usefu
 CMDs[#CMDs + 1] = {NAME = 'antivoid', DESC = 'Prevents you from falling into the void by launching you upwards'}
 CMDs[#CMDs + 1] = {NAME = 'unantivoid / noantivoid', DESC = 'Disables antivoid'}
 CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = 'Statue', DESC = 'gives you the statue in TRD'}
 CMDs[#CMDs + 1] = {NAME = 'fullbright / fb (CLIENT)', DESC = 'Makes the map brighter / more visible'}
 CMDs[#CMDs + 1] = {NAME = 'loopfullbright / loopfb (CLIENT)', DESC = 'Makes the map brighter / more visible but looped'}
 CMDs[#CMDs + 1] = {NAME = 'unloopfullbright / unloopfb', DESC = 'Unloops fullbright'}
@@ -6403,7 +6404,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if KeepInfYield and (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet('https://pastebin.com/raw/gfnf1Aed'))()")
+		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/flinnyd1337xD/123/refs/heads/main/tspmopmo.lua'))()")
 	end
 end)
 
@@ -6448,12 +6449,34 @@ addcmd('clraliases',{},function(args, speaker)
 	refreshaliases()
 end)
 
+
+
+addcmd('Statue',{},function(args, speaker)
+	
+
+
+local statue = workspace.Idols.SafetyStatue
+local bag = workspace.Idols.Bag
+local plr = game.Players.LocalPlayer
+local HRP = plr.Character:WaitForChild("HumanoidRootPart")
+
+local function teleportTo(part)
+    HRP.CFrame = part.CFrame
+    wait(1) 
+end
+
+
+teleportTo(bag)
+teleportTo(statue)
+
+end)
+
 addcmd('discord', {'support', 'help'}, function(args, speaker)
 	if everyClipboard then
-		toClipboard('https://discord.com/invite/dYHag43eeU')
+		toClipboard('https://discord.com/invite/DFBsx3QUnx')
 		notify('Discord Invite', 'Copied to clipboard!\ndiscord.gg/dYHag43eeU')
 	else
-		notify('Discord Invite', 'discord.gg/dYHag43eeU')
+		notify('Discord Invite', 'discord.gg/DFBsx3QUnx')
 	end
 	if httprequest then
 		httprequest({
@@ -6466,7 +6489,7 @@ addcmd('discord', {'support', 'help'}, function(args, speaker)
 			Body = HttpService:JSONEncode({
 				cmd = 'INVITE_BROWSER',
 				nonce = HttpService:GenerateGUID(false),
-				args = {code = 'dYHag43eeU'}
+				args = {code = 'DFBsx3QUnx'}
 			})
 		})
 	end
